@@ -29,9 +29,7 @@ class Pay extends Controller
           $verify->verify_count = 1;
           $verify->save();
 
-          $amount = \App\Models\Verify::where('user_id', auth()->user()->id)->pluck('amount')->sum();
-          $count = \App\Models\Verify::where('user_id', auth()->user()->id)->pluck('verify_count')->count();
-          return view('home' , compact('amount','count'));
+          return back();
       }
 
       return back();
